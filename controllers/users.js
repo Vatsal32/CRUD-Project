@@ -8,7 +8,7 @@ module.exports = {
             if (err) {
                 next(err);
             } else {
-                res.json({status: "200 OK", message: "User added successfully", data: result});
+                res.json({status: "success", message: "User added successfully", data: result});
             }
         });
     },
@@ -19,12 +19,12 @@ module.exports = {
             } else {
                 if (bcrpyt.compareSync(req.body.password, userInfo.password)) {
                     const token = jwt.sign({id: userInfo._id}, process.env.JWT_KEY, {expiresIn: '1h'});
-                    res.json({status: '200 OK', message: 'User logged in. ', data: {
+                    res.json({status: 'success', message: 'User logged in. ', data: {
                         user: userInfo,
                         token: token
                     }})
                 } else {
-                    res.json({status: '200 OK', message: "Invalid Password"});
+                    res.json({status: 'success', message: "Invalid Password"});
                 }
             }
         })

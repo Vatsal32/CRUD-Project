@@ -25,9 +25,4 @@ const studentSchema = new Schema({
     }
 });
 
-userSchema.pre('save', function(next) {
-    this.password = bcrypt.hashSync(this.password, saltRounds);
-    next();
-});
-
 module.exports = mongoose.model('student', studentSchema);

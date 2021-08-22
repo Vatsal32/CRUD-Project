@@ -1,24 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const studentController = require('../controllers/student');
 
-router.get("/", (req, res) => {
-    res.json({route: "Get All Students. "});
-});
+router.get("/", studentController.getAll);
 
-router.post("/create", (req, res) => {
-    res.json({route: "Add Student. "});
-});
+router.post("/create", studentController.create);
 
-router.get("/:id/", (req, res) => {
-    res.json({route: "Get Students. "});
-});
+router.get("/:id", studentController.getById);
 
-router.put("/:id/", (req, res) => {
-    res.json({route: "Update Student. "});
-});
+router.put("/:id", studentController.updateById);
 
-router.delete("/:id/", (req, res) => {
-    res.json({route: "Delete a Student record. "});
-})
+router.delete("/:id", studentController.deleteById);
 
 module.exports = router;
