@@ -14,7 +14,7 @@ mongoose.connect("mongodb://localhost:27017/students", {useNewUrlParser: true, u
 mongoose.connection.on('error', console.error.bind("MongoDB connection error:"));
 
 app.get('/', (req, res) => {
-    res.json({tutorial: "Build a REST API using Node JS. "});
+    res.json({title: "CRUD-Project: Build a REST API using Node JS. "});
 });
 
 app.use('/users', users);

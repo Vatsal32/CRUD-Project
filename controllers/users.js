@@ -8,7 +8,7 @@ module.exports = {
             if (err) {
                 next(err);
             } else {
-                res.json({status: "success", message: "User added successfully", data: result});
+                res.json({status: "success", message: "User added successfully"});
             }
         });
     },
@@ -20,7 +20,6 @@ module.exports = {
                 if (bcrpyt.compareSync(req.body.password, userInfo.password)) {
                     const token = jwt.sign({id: userInfo._id}, process.env.JWT_KEY, {expiresIn: '1h'});
                     res.json({status: 'success', message: 'User logged in. ', data: {
-                        user: userInfo,
                         token: token
                     }})
                 } else {

@@ -19,7 +19,7 @@ module.exports = {
             if (err) {
                 next(err);
             } else {
-                res.json({status: "success", message: "Student added. ", data: {student: null}});
+                res.json({status: "success", message: "Student added. ", data: {student: result}});
             }
         });
     }, 
@@ -37,7 +37,7 @@ module.exports = {
             if (err) {
                 next(err);
             } else {
-                res.json({status: "success", message: "Student updated. ", data: {student: null}});
+                res.json({status: "success", message: "Student updated. "});
             }
         });
     }, 
@@ -46,7 +46,7 @@ module.exports = {
             if (err) {
                 next(err);
             } else {
-                res.json({status: "success", message: "Student deleted. ", data: {student: null}});
+                res.json({status: "success", message: "Student deleted. "});
             }
         });
     }, 
